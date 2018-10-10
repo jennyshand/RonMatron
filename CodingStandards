@@ -1,0 +1,40 @@
+CODING STANDARDS
+Brackets on their own line
+Ex.
+Function (a) 
+{
+    Stuff;
+}
+
+camelCase for variables
+
+Ex.
+string choclateCake
+Int aNumberCounter
+Bool margaritasAreOnEmily = True;
+        
+
+We will use tabs not spaces
+Ex
+    Stuff;
+ stuff;
+
+// regular comment
+//* Don’t change code without talking to coder
+//a auto generated code DON’T CHANGE
+//nc Not completed code
+//c Completed code
+
+There will be an opening comment block for each file with
+// Last Modified:
+// Version:
+// Modifier:
+// Current Date:
+
+Loops and IF statements should use brackets
+Ex.
+If ( tacoTuesday == True )
+{
+    cout << “Addie Buys Tacos”
+    Return 0;
+}
