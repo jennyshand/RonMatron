@@ -1,0 +1,18 @@
+/*
+Last Modified by: Matthew Compelube
+Last Modified date: 11/3/18
+Created by: Matthew Compelube
+created date: 11/3/2018
+*/
+
+#person
+{
+  background-color: lightgreen;
+  text-align: left;
+}
+
+#bot
+{
+  background-color: lightblue;
+  text-align: right;
+}
