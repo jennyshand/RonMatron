@@ -8,7 +8,6 @@
   keyword_cat   varchar(20),
   keyword_name   varchar(20) not null,
   primary key (keyword_id)
-  foreign key (keyword_cat) references category (category_id)
  );
  
  /* This table will consist of a repositiory of correct answers to common questions that will 
@@ -22,8 +21,7 @@
  (answer_id   char(4),
   answer_cat   varchar(20) not null,
   answer_name  varchar(20) not null,
-  primary key (answer_id),
-  foreign key (answer_cat) references category (category_id)
+  primary key (answer_id)
  );
    
  /* This table will consist of categories of types of questions and answers (ie. answers
@@ -36,6 +34,8 @@
  create table category 
  (category_id   char(4),
   category_name   varchar(20) not null,
+  keyword_id   char(6),
+  answer_id   char(4),
   primary key (category_id),
   foreign key (keyword_id) references keyword,
   foreign key (answer_id) references answer
