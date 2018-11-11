@@ -62,10 +62,10 @@
  create table feedback 
  (feedback_id   char(4),
   feedback_info   varchar(200) not null,
-  feedback_cat   char(6),
+  feedback_cat   varchar(20),
   answer_id   char(4),
   primary key (feedback_id),
-  foreign key (feedback_cat) references category (category_id),
+  foreign key (feedback_cat) references category (category_name),
   foreign key (answer_id) references answer
  );
      
