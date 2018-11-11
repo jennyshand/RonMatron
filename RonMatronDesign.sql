@@ -75,10 +75,9 @@
  drop table feedback_keywords cascade constraints;
      
  create table feedback_keywords
- (feedback_keywords_id  char(4),
-  keyword_id   char(6), 
+ (keyword_id   char(6), 
   feedback_id   char(4),
-  primary key (feedback_keywords_id),
+  primary key (keyword_id, feedback_id),
   foreign key (keyword_id) references keyword,
   foreign key (feedback_id) references feedback
  );
