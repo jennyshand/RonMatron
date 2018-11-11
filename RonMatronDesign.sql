@@ -18,10 +18,10 @@
 
  create table keyword
  (keyword_id   char(6),
-  keyword_cat   varchar(20) not null,
+  category_id  char(4) not null,
   keyword_name   varchar(20) not null,
   primary key (keyword_id)
-  foreign key (keyword_cat) references category (category_name)
+  foreign key (category_id) references category
  );
  
  /* This table will consist of a repositiory of correct answers to common questions that will 
@@ -33,10 +33,10 @@
   
  create table answer
  (answer_id   char(4),
-  answer_cat   varchar(20) not null,
+  category_id  char(4) not null,
   answer_name  varchar(200) not null,
   primary key (answer_id)
-  foreign key (answer_cat) references category (category_name)
+  foreign key (category_id) references category 
  );
    
     
@@ -62,10 +62,10 @@
  create table feedback 
  (feedback_id   char(4),
   feedback_info   varchar(200) not null,
-  feedback_cat   varchar(20),
+  category_id  char(4) not null,
   answer_id   char(4),
   primary key (feedback_id),
-  foreign key (feedback_cat) references category (category_name),
+  foreign key (category_id) references category,
   foreign key (answer_id) references answer
  );
      
