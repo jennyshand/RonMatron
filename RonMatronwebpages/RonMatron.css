@@ -1,12 +1,34 @@
-#person
+#chat6
 {
-  background-color: lightgreen;
+  background-color: white;
   text-align: left;
 }
 
-#bot
+#chat5
 {
-  background-color: lightblue;
+  background-color: white;
+  text-align: right;
+}
+#chat4
+{
+  background-color: white;
+  text-align: left;
+}
+
+#chat3
+{
+  background-color: white;
+  text-align: right;
+}
+#chat2
+{
+  background-color: white;
+  text-align: left;
+}
+
+#chat1
+{
+  background-color: white;
   text-align: right;
 }
 
@@ -65,9 +87,10 @@
 {
     margin-top:10px;
     margin-right:10px;
+    margin-left: 10px;
     display:inline-block;
-    height:30px;
-    width:30px;
+    height:30%;
+    width:30%;
     position:relative;
 }
 
@@ -80,6 +103,12 @@
 
 #mouth
 {
-    
+    background-color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25%;
+    margin-left: 25%;
+    height:50%;
+    width:50%;
 }
 
