@@ -34,7 +34,8 @@
  create table answer
  (answer_id   char(4),
   category_id  char(4) not null,
-  answer_name  varchar(200) not null,
+  answer_name  varchar2(200) not null,
+  answer_trigger varchar2(10) check in ('Where', 'How', 'What','Why', 'Who','When'),
   primary key (answer_id),
   foreign key (category_id) references category 
  );
