@@ -62,7 +62,7 @@ insert into answer
 values
 ('0003', '0000', 'All Locations');
 
-prompt This inset if for CodonCode Aligner
+prompt This insert if for CodonCode Aligner
 insert into answer
 values
 ('0004', '0000', 'SCIA 364, SCIA 460, SCIB 121, SCIB 121a, SCIB 122, SCIB 132, SCIB 135, SCIB 328');
@@ -72,34 +72,34 @@ prompt insert into table keyword_has_answer
 
 insert into keyword_has_answer 
 values
-(‘000000’,’0000’);
+('000000','0000');
 
 insert into keyword_has_answer 
 values
-(‘000001’,’0001’);
+('000001','0001');
 
 insert into keyword_has_answer 
 values
-(‘000002’,’0002’);
+('000002','0002');
 
 insert into keyword_has_answer 
 values
-(‘000003’,’0003’);
+('000003','0003');
 
 insert into keyword_has_answer 
 values
-(‘000004’,’0004’);
+('000004','0004');
 
 
 prompt inserting into the feedback table 
 
 insert into feedback
 values
-(‘0000’,’RonMatron was greatly helpful with helping me locate where python is located so I can finish my python homework.’,’0000’, ‘0003’);
+('0000','RonMatron was greatly helpful with helping me locate where python is located so I can finish my python homework.','0000', '0003');
 
 
 prompt inserting into the feedback_keywords table
 
 insert into feedback_keywords
 values
-(‘000003’, ‘0000’);
+('000003', '0000');
