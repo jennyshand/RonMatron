@@ -7,7 +7,7 @@
    
  create table category 
  (category_id   char(4),
-  category_name   varchar(20),
+  category_name   text,
   primary key (category_id)
  );
 
