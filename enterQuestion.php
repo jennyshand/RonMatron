@@ -1,5 +1,5 @@
 <?php
-    function enterQuest()
+    function askQuestion()
     {
         ?>
         <html>
