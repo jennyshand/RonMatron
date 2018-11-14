@@ -20,6 +20,18 @@
 
     </head>
     <body>
+        
+        <?php
+        $db_conn =
+            "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)
+                                       (HOST = cedar.humboldt.edu)
+                                       (PORT = 1521))
+                            (CONNECT_DATA = (SID = STUDENT)))";
+        
+        $conn = oci_connect($username, $password, $db_conn);
+        
+        ?>
+        
         <title> RonMatron Alpha Version </title>
         <header class=" w3-container w3-green" style="height:38.8px" id="header1-green">
             <p> RonMatron 🤖 </p>
@@ -88,6 +100,10 @@
         </div>
 -->
         
+        <div class="w3-container w3-margin w3-red" id="form-reply-box">
+            
+        </div>
+        
         <div class="w3-container w3-margin w3-round" id="form-input-rounded-box">
             <form id="input-rounded-box" method="post" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>">
               <input type="text" class="w3-input" name="input-box" id="input-box" placeholder="Type text here" min="1" />
@@ -96,47 +112,6 @@
             </form>
         </div>
         
-<!--
-        <script>
-            function chatFunction()
-            {
-                var value1 = document.getElementById("chat1");
-                var value3 = document.getElementById("chat3");
-                var value5 = document.getElementById("chat5");
-                var chatText = document.getElementById("input-box");
-                
-//                value1.innerHTML = chatText.value
-                
-                var testval = value1.innerHTML;
-                var textval = chatText.innerHTML;
-                
-                if (value1.innerHTML == 1)
-                    {
-                        value1.innerHTML = chatText.value;
-//                        value3.innerHTML = document.getElementById("chat1").value;
-//                        value5.innerHTML = testval.length;
-                    }
-                else if (value3.innerHTML == 3 && value1.innerHTML != 1)
-                    {
-                        value3.innerHTML = value1.innerHTML;
-                        value1.innerHTML = chatText.value;
-                    }
-                else if (value5.innerHTML == 5 && value3.innerHTML != 3)
-                    {
-                        value5.innerHTML = value3.innerHTML;
-                        value3.innerHTML = value1.innerHTML;
-                        value1.innerHTML = chatText.value;
-                    }
-                else
-                    {
-                        value5.innerHTML = value3.innerHTML;
-                        value3.innerHTML = value1.innerHTML;
-                        value1.innerHTML = chatText.value;
-                    }
-                
-            }
-        </script>
--->
         
         <div>
             <footer class=" w3-container w3-green w3-border-top" style="height:38.8px" id="footer1-green">
