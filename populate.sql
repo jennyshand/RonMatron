@@ -17,6 +17,25 @@ insert into category
 values
 ('0000', 'Software');
 
+insert into category
+values
+('0001', 'what');
+
+insert into category
+values
+('0002', 'where');
+
+insert into category
+values
+('0003', 'when');
+
+insert into category
+values
+('0004', 'why');
+
+insert into category
+values
+('0005', 'how');
 
 prompt inserting rows into table keyword
 
