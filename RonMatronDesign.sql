@@ -8,7 +8,7 @@
  create table category 
  (category_id   char(4),
   category_name   varchar(20) not null,
-  primary key (category_id),
+  primary key (category_id)
  );
 
 --This table will consist of keywords from questions asked that will be linked to relevant answers
@@ -20,7 +20,7 @@
  (keyword_id   char(6),
   category_id  char(4) not null,
   keyword_name   varchar(20) not null,
-  primary key (keyword_id)
+  primary key (keyword_id),
   foreign key (category_id) references category
  );
  
@@ -35,7 +35,7 @@
  (answer_id   char(4),
   category_id  char(4) not null,
   answer_name  varchar(200) not null,
-  primary key (answer_id)
+  primary key (answer_id),
   foreign key (category_id) references category 
  );
    
