@@ -1,4 +1,4 @@
- /* This table will consist of categories of types of questions and answers (ie. answers
+/* This table will consist of categories of types of questions and answers (ie. answers
       relating to printers would belong to a "printer" category, or questions asked about
       where to find certain software sets would be linked to a "software category")
  */
@@ -7,7 +7,7 @@
    
  create table category 
  (category_id   char(4),
-  category_name   text,
+  category_name  varchar2(20),
   primary key (category_id)
  );
 
@@ -19,12 +19,12 @@
  create table keyword
  (keyword_id   char(6),
   category_id  char(4) not null,
-  keyword_name   varchar(20) not null,
+  keyword_name   varchar2(20) not null,
   primary key (keyword_id),
   foreign key (category_id) references category
  );
  
- /* This table will consist of a repositiory of correct answers to common questions that will 
+ /* This table will consist of a repository of correct answers to common questions that will 
     be linked to questions through the keywords table. answer_id is a unique 4 digit code that 
     identifies each keyword.
  */
@@ -35,7 +35,7 @@
  (answer_id   char(4),
   category_id  char(4) not null,
   answer_name  varchar2(200) not null,
-  answer_trigger varchar2(10) check in ('Where', 'How', 'What','Why', 'Who','When'),
+  answer_trigger varchar2(10) check(answer_trigger in ('Where', 'How', 'What','Why', 'Who','When')),
   primary key (answer_id),
   foreign key (category_id) references category 
  );
@@ -62,7 +62,7 @@
     
  create table feedback 
  (feedback_id   char(4),
-  feedback_info   varchar(500) not null,
+  feedback_info   varchar2(500) not null,
   category_id  char(4) not null,
   answer_id   char(4),
   primary key (feedback_id),
