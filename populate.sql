@@ -64,27 +64,27 @@ prompt inserting rows into answer
 prompt This is the insert for 7-Zip
 insert into answer
 values
-('0000', '0000', 'All Locations, VLab - GSP-FOR-GEOL-WDFS','Where');
+('0000', '0000', 'All Locations, VLab - GSP-FOR-GEOL-WDFS','0002');
 
 prompt This insert is for mathematica 
 insert into answer
 values
-('0001', '0000', 'All Locations','Where');
+('0001', '0000', 'All Locations','0002');
 
 prompt This insert is for CodeBlocks
 insert into answer
 values
-('0002', '0000', 'BSS 302, BSS 308, BSS 313, BSS 316A, JH 214, SCID 13, SCID 15, SCID 17, SCID 23, SCID 3, SCID 5, vLinux','Where');
+('0002', '0000', 'BSS 302, BSS 308, BSS 313, BSS 316A, JH 214, SCID 13, SCID 15, SCID 17, SCID 23, SCID 3, SCID 5, vLinux','0002');
 
 prompt This insert is for python
 insert into answer
 values
-('0003', '0000', 'All Locations','Where');
+('0003', '0000', 'All Locations','0002');
 
 prompt This insert if for CodonCode Aligner
 insert into answer
 values
-('0004', '0000', 'SCIA 364, SCIA 460, SCIB 121, SCIB 121a, SCIB 122, SCIB 132, SCIB 135, SCIB 328','Where');
+('0004', '0000', 'SCIA 364, SCIA 460, SCIB 121, SCIB 121a, SCIB 122, SCIB 132, SCIB 135, SCIB 328','0002');
 
 
 prompt insert into table keyword_has_answer
