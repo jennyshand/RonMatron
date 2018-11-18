@@ -37,6 +37,10 @@ insert into category
 values
 ('0005', 'how');
 
+insert into category
+values
+('0006', 'Printing');
+
 prompt inserting rows into table keyword
 
 insert into keyword
@@ -58,6 +62,10 @@ values
 insert into keyword
 values
 ('000004', '0000', 'CodonCode Aligner');
+
+insert into keyword
+values
+('000005', '0005', 'Printer');
 
 
 prompt inserting rows into answer
@@ -86,6 +94,11 @@ insert into answer
 values
 ('0004', '0000', 'SCIA 364, SCIA 460, SCIB 121, SCIB 121a, SCIB 122, SCIB 132, SCIB 135, SCIB 328','0002');
 
+prompt This insert is how to print on campus question
+insert into answer
+values
+('0005', '0006', 'its.humboldt.edu/computers-printers-phones/windows-wireless-printing-installation-students', '0005');
+
 
 prompt insert into table keyword_has_answer
 
@@ -109,6 +122,10 @@ insert into keyword_has_answer
 values
 ('000004','0004');
 
+insert into keyword_has_answer 
+values
+('000005','0005');
+
 
 prompt inserting into the feedback table 
 
@@ -116,9 +133,16 @@ insert into feedback
 values
 ('0000','RonMatron was greatly helpful with helping me locate where python is located so I can finish my python homework.','0000', '0003');
 
+insert into feedback
+values
+('0001','RonMatron helped me figure out how to print to one of the wireless printers on campus.','0006', '0005');
 
 prompt inserting into the feedback_keywords table
 
 insert into feedback_keywords
 values
 ('000003', '0000');
+
+insert into feedback_keywords
+values
+('000005', '0001');
