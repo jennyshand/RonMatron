@@ -35,9 +35,10 @@
  (answer_id   char(4),
   category_id  char(4) not null,
   answer_name  varchar2(200) not null,
-  answer_trigger varchar2(10) check(answer_trigger in ('Where', 'How', 'What','Why', 'Who','When')),
+  answer_trigger varchar2(20),
   primary key (answer_id),
-  foreign key (category_id) references category 
+  foreign key (category_id) references category,
+  foreign key (answer_trigger) references category(category_name)
  );
    
     
