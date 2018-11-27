@@ -19,6 +19,7 @@
         require_once("frontPage.php");
 		require_once("conversation.php");
 		require_once("feedback.php");
+		require_once("reply.php");
      ?>
 
     <link href="http://users.humboldt.edu/smtuttle/styles/normalize.css"
@@ -84,7 +85,7 @@
 		if($_POST['next_option3'] == "reply")
 		{
 			create_Reply();
-			$_SESSION['next-stage'] = "choicetwo";
+			$_SESSION['next-stage'] = "choicefour";
 		}
 		elseif($_POST['next_option3'] == "faq")
         {       
