@@ -1,0 +1,218 @@
+#chat6
+{
+  background-color: white;
+  text-align: left;
+}
+
+#chat5
+{
+  background-color: white;
+  text-align: right;
+}
+#chat4
+{
+  background-color: white;
+  text-align: left;
+}
+
+#chat3
+{
+  background-color: white;
+  text-align: right;
+}
+#chat2
+{
+  background-color: white;
+  text-align: left;
+}
+
+#chat1
+{
+  background-color: white;
+  text-align: right;
+}
+
+.eyes
+{
+  position: relative;
+  display: inline-block;
+  background-color: grey;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+}
+.container
+{
+  width: 100%;
+  
+}
+
+#containerofron
+{
+    margin:auto;
+}
+
+#Ron
+{
+    margin: auto;
+}
+
+#hat
+{
+    margin:auto;
+    background-color:saddlebrown;
+    height:40px;
+    width:25%;
+    position:relative;
+}
+
+#innerhat
+{
+    background-color:#b45918;
+    margin-top:20px;
+    height:20px;
+    width:100%;
+}
+
+#face
+{
+    margin:auto;
+    height:100px;
+    width: 25%;
+    background-color: peachpuff;
+    position:relative;
+}
+
+#eye
+{
+    margin-top:10px;
+    margin-right:10px;
+    margin-left: 10px;
+    display:inline-block;
+    height:30%;
+    width:30%;
+    position:relative;
+}
+
+#beard
+{
+    height:60px;
+    margin:auto;
+    width:25%;
+}
+
+#mouth
+{
+    background-color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 25%;
+    margin-left: 25%;
+    height:50%;
+    width:50%;
+}
+
+.header_topgfront
+{
+    border: 20px;
+    padding-bottom: 28px;
+    text-align: center;
+    color: #f3f7ea;
+    font-family: fantasy;
+    font-size: 20px;
+    background-color: #046A38; 
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0px;                
+}
+  
+.header_bottomyfront{
+    border: 20px;
+    padding-top: 35px;
+    text-align: center;
+    background-color: #FFC72C;
+    position: fixed;
+    top: 28px;
+    width: 100%;
+    left: 0px;
+}
+
+.footer_topyfront{
+                
+    border: 20px;
+    padding-bottom: 60px;
+    text-align: center;
+    font-family: fantasy;
+    font-size: 20px;
+    background-color: #FFC72C; 
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    left: 0px; 
+}
+.footer_bottomgfront{
+    padding-bottom: 28px;
+    text-align: center;
+    color: #046A38;
+    font-family: fantasy;
+    font-size: 20px;
+    background: #046A38; 
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    left: 0px; 
+}
+
+body{
+   background-color: #c7ccbd;
+}
+
+.stuff{
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+img 
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.container12
+{
+	position: relative;
+	top: 25px;
+}
+
+.sub 
+{
+  position: relative;
+  overflow: hidden;
+}
+
+.itmHolder 
+{
+  position: relative;
+  top: 25px;
+}
+button 
+{
+  display: inline-block;
+  padding: 12px 8px;
+}
+.og 
+{
+  margin-top: 15px;
+  position: relative;
+  text-align: center;
+}
+
+div.container
+{
+  position: relative;
+  top: 40px;
+  bottom: 40px;
+}
