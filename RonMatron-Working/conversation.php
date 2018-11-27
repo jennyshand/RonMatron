@@ -25,7 +25,7 @@
 			<body>
 				<title> RonMatron Alpha Version </title>
 				<header class=" w3-container w3-green" style="height:38.8px" id="header1-green">
-					<p> RonMatron 🤖 </p>
+					<p> RonMatron ðŸ¤– </p>
 				</header>
 				<header class="w3-container w3-yellow" style="height:38.8px" id="header2-yellow">
 				</header>
@@ -68,13 +68,12 @@
 				<div class="w3-container w3-margin w3-round" id="form-input-rounded-box">
 					<form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
 					  <input type="text" class="w3-input" name="input-box" id="input-box" placeholder="Type text here" min="1" />
-					  <button class="w3-butn w3-margin w3-blue" type="button" onclick="chatFunction()" id="chat_button" name="button_chat">
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3" value="reply">
 					  Chat
 					  </button>
 					  <div>
-						<button class="one" name="next_option3" type="submit" value="feedback">Provide Feedback</button>
-						<button class="two" name="next_option3" type="submit" value="home">Home</button>
-						<button class="three" name="next_option3" type="submit" value="faq">Check the FAQ</button>
+						<button class="one" name="next_option3" type="submit" value="home">Home</button>
+						<button class="two" name="next_option3" type="submit" value="faq">Check the FAQ</button>
 					  </div>
 					</form>
 				</div>
