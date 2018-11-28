@@ -19,21 +19,10 @@
         require_once("frontPage.php");
 		require_once("conversation.php");
 		require_once("feedback.php");
-        require_once("reply.php");
      ?>
-    
 
-<!--
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#00a300">
-    <meta name="theme-color" content="#ffffff">
--->
-
-
+    <link href="http://users.humboldt.edu/smtuttle/styles/normalize.css"
+          type="text/css" rel="stylesheet" />
 
 <!--    <link href="chatBot.css"
           type="text/css" rel="stylesheet" />
@@ -45,7 +34,7 @@
 
 <body>
 
-<?php
+    <?php
     if (! array_key_exists('next-stage', $_SESSION))
     {
         create_FrontPage();
@@ -108,6 +97,28 @@
 			$_SESSION['next-stage'] = "choicefour";
 		}
 		elseif ($_POST['next_option3'] == "home")
+		{
+			session_destroy();
+            session_regenerate_id(TRUE);
+            session_start();
+            create_FrontPage();
+            $_SESSION['next-stage'] = "makechoice";
+		}
+	}
+	elseif ($_SESSION['next-stage'] == "choicefour" &&
+            array_key_exists("next_option4", $_POST))
+	{
+		if($_POST['next_option4'] == "feedback")
+		{
+			create_Feedback();
+			$_SESSION['next-stage'] = "choicefour";
+		}
+		elseif($_POST['next_option4'] == "faq")
+        {       
+            create_faq();
+            $_SESSION['next-stage'] = "choicetwo";
+		}
+		elseif ($_POST['next_option4'] == "home")
 		{
 			session_destroy();
             session_regenerate_id(TRUE);
