@@ -84,13 +84,11 @@
     outline: none;
     font-size: 15px;
 }
-
 .active, .collapsible:hover {
     background-color: #41a059;
     color: black;
     padding: auto;
 }
-
 .content {
     padding: 18px;
     display: none;
@@ -108,13 +106,18 @@
         Frequently Asked Questions</header>
     <header class="header_bottomy">
         <nav>
-            <a href="/Home/">Home</a> |
-            <a href="/RonChat/">RonChat</a>
-        </nav></header>
+            <form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+			<button class="one" name="next_option" type="submit" value="home">Home</button>
+            <button class="two" name="next_option" type="submit" value="ask">Ask the RonMatron</button>
+            </form>
+        </nav>
+    </header>
     <article class="body_section">
         <button class="collapsible">Where are Print Kiosks Located?</button>
         <div class="content">
-            <p>There are Print Kiosks located in the following locations <ul>Natural Resources</ul><ul> Forestry</ul><ul> Harry Griffith Hall</ul><ul> Gist Hall</ul><ul> The University Center</ul><ul> Founders Hall</ul> <ul>Kineseology</ul><ul> Library</ul></p></div>
+            <p>There are Print Kiosks located in the following locations <ul>Natural Resources</ul><ul> Forestry</ul><ul> Harry Griffith Hall</ul><ul> Gist Hall</ul><ul> The University Center</ul><ul> Founders Hall</ul> <ul>Kineseology</ul><ul> Library</ul>
+            </p>
+        </div>
         <button class="collapsible">How do I access my google drive from a campus computer?</button>
         <div class="content">
             <p>After logging into a campus computer a google drive window should appear; from here you may log in using your student e-mail to access the google drive</p>
@@ -140,6 +143,7 @@
         <button class="collapsible">How do I connect to the internet on campus?</button>
         <div class="content"><p>Connect to the Eduroam network and you may be required to install software from <a href="https://its.humboldt.edu/internet-wifi/eduroam" target="_blank">it.humboldt.edu/internet-wifi/eduroam</a> in order to access the network.</p></div>
          </article>
+     
          
    <!-- RIP Footers
     <footer class="footer_topy"></footer>
@@ -147,7 +151,7 @@
     -->
         
         <!-- this is the javascript to make the collapsible sections -->
-        <script>
+<script>
 var coll = document.getElementsByClassName("collapsible");
 var i;
  for (i = 0; i < coll.length; i++) {
