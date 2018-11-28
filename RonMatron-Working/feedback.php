@@ -59,11 +59,11 @@
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label for="name"> Your Name:</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <input type="text" class="form-control" id="name" name="name" >
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="email"> Email:</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                <input type="email" class="form-control" id="email" name="email">
                             </div>
                         </div>
                         <div class="row">
