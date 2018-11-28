@@ -18,7 +18,7 @@
 
  create table keyword2
  (keyword_id   int,
-  category_id  char(4) not null,
+  category_id  char(4),
   keyword_name   varchar2(100) not null,
   primary key (keyword_id),
   foreign key (category_id) references category2
@@ -33,7 +33,7 @@
   
  create table answer2
  (answer_id  int,
-  category_id  char(4) not null,
+  category_id  char(4),
   answer_name  varchar2(200),
   primary key (answer_id),
   foreign key (category_id) references category2
@@ -61,12 +61,12 @@
     
  create table feedback2 
  (feedback_id   char(4),
-  feedback_info   varchar2(500) not null,
-  rating          int,
-  name            varchar2(50),
-  email           varchar2(50),
-  category_id  char(4) not null,
-  answer_id   int,
+  feedback_info varchar2(500) not null,
+  category_id   char(4),
+  answer_id     int,
+  rating        int,
+  name          varchar2(50),
+  email         varchar2(50),
   primary key (feedback_id),
   foreign key (category_id) references category2,
   foreign key (answer_id) references answer2
