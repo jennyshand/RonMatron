@@ -46,6 +46,7 @@
 <body>
 
     <?php
+<?php
     if (! array_key_exists('next-stage', $_SESSION))
     {
         create_FrontPage();
@@ -93,22 +94,27 @@
             array_key_exists("next_option3", $_POST))
 	{
 		if($_POST['next_option3'] == "faq")
-        	{       
-            		create_faq();
-            	$_SESSION['next-stage'] = "choicetwo";
-		}
-		elseif ($_POST['next_option3'] == "home")
-		{
-			session_destroy();
-            		session_regenerate_id(TRUE);
-            		session_start();
-            		create_FrontPage();
-            		$_SESSION['next-stage'] = "makechoice";
+        {       
+            create_faq();
+            $_SESSION['next-stage'] = "choicetwo";
 		}
 		elseif ($_POST['next_option3'] == "reply")
 		{
 			create_Conversation();
 			$_SESSION['next-stage'] = "choicethree";
+		}
+		elseif ($_POST['next_option3'] == "feedback")
+		{
+			create_Feedback();
+			$_SESSION['next-stage'] = "choicefour";
+		}
+		elseif ($_POST['next_option3'] == "home")
+		{
+			session_destroy();
+            session_regenerate_id(TRUE);
+            session_start();
+            create_FrontPage();
+            $_SESSION['next-stage'] = "makechoice";
 		}
 	}
 	 else
