@@ -113,8 +113,8 @@ if(array_key_exists("insert-answer-box", $_POST))
 //        }
 //    }
     
-    $usr = 'mac1782';
-    $pwd = 'Aaron9531';
+    $usr = '';
+    $pwd = '';
 
     $db_conn_str = 
                 "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)
@@ -189,8 +189,8 @@ else
 
     //LOG IN, DONT TOUCH
 
-    $usr = 'mac1782';
-    $pwd = 'Aaron9531';
+    $usr = '';
+    $pwd = '';
 
     $db_conn_str = 
                 "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)
