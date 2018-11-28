@@ -24,21 +24,21 @@
 			</head>
 			<body>
 				<title> Ask me Ronnything? </title>
-				<header class=" w3-container w3-green" style="height:38.8px" id="header1-green">
-					<p> RonMatron 🤖 </p>
-				</header>
-				<header class="w3-container w3-yellow" style="height:38.8px" id="header2-yellow">
-				</header>
+				<div class="w3-container w3-padding-64">
+                    <header class="w3-container header_topgfront" style="height:38.8px" id="header1-green">
+                    </header>
+                    <header class="w3-container header_bottomyfront" style="height:38.8px" id="header2-yellow">
+                    </header>
+                </div>
 				
 				
-				<div class="w3-container" id="containerofron">
+				<div class="Ron">
 		<!--            <div class="w3-white">-->
 		<!--                <div class="w3-bar w3-center">-->
-		<!--
-							<div class="w3-bar-item w3-white" style="width:33.3%">
-								<p> </p>
-							</div>
-		-->
+
+		<!--					<div class="w3-bar-item #c7ccbd" style="height:200px">-->
+                                
+                             
 						   
 							<div id="Ron">
 		<!--                        <div class="w3-container">-->
@@ -47,9 +47,14 @@
 									</div>
 									<div class="w3-container w3-center" id="face">
 											<!-- <p>Ron's Talking Head Here</p> -->
-											<div class="w3-white" id="eye"></div>
-											<div class="w3-white " id="eye"></div>
+                                        <div class="face"></div>
+                                        <p></p>
+											<div class="eye"></div>
+                                            vegan
+											<div class="eye"></div>
+                                        </div>
 									</div>
+                    
 									<div class="w3-black w3-container" id="beard">
 										<div id="mouth">
 										
@@ -59,21 +64,54 @@
 							</div>
 		<!--                </div>-->
 		<!--            </div>-->
-				</div>
+<script>     
+$("body").mousemove(function(event) {
+  var eye = $(".eye");
+  var x = (eye.offset().left) + (eye.width() / 2);
+  var y = (eye.offset().top) + (eye.height() / 2);
+  var rad = Math.atan2(event.pageX - x, event.pageY - y);
+  var rot = (rad * (180 / Math.PI) * -1) + 180;
+  eye.css({
+    '-webkit-transform': 'rotate(' + rot + 'deg)',
+    '-moz-transform': 'rotate(' + rot + 'deg)',
+    '-ms-transform': 'rotate(' + rot + 'deg)',
+    'transform': 'rotate(' + rot + 'deg)'
+  });
+});
+</script>
                 
 <?php
 
-
-//$a_value = $_POST['input-box'];
-echo '<br />';
-//echo $a_value;
-echo '<br />';
 
 if(array_key_exists("insert-answer-box", $_POST))
 {
     //THIS ONE IS GOOD!!!
     $a_id = $_SESSION['answer-id'];
     $ans = $_POST['insert-answer-box'];
+    
+//    for ($x = 0; $x < strlen($ans); $x++)
+//    {
+//        if ($ans[$x] == ".")
+//        {
+//            $ans[$x] = "";
+//        }
+//        else if ($ans[$x] == "?")
+//        {
+//            $ans[$x] = "";
+//        }
+//        else if ($ans[$x] == "!")
+//        {
+//            $ans[$x] = "";
+//        }
+//        else if ($ans[$x] == "\"")
+//        {
+//            $ans[$x] = "";
+//        }
+//        else if ($ans[$x] == "'")
+//        {
+//            $ans[$x] = "";
+//        }
+//    }
     
     $usr = 'mac1782';
     $pwd = 'Aaron9531';
@@ -105,18 +143,12 @@ if(array_key_exists("insert-answer-box", $_POST))
     oci_commit($connctn);
     oci_free_statement($update_answer_stmt);
     
-    
-    
-    
-    
     oci_close($connctn);
 }
 
         
 if(!array_key_exists("input-box", $_POST))
 {
-    echo "LISTEN HERE MOTHER FUCKER <br />";
-    echo "Anime is an art form <br />";
     
 }
 else
@@ -265,7 +297,7 @@ else
     //        echo '<br />';
 
 
-            if ($token == "where")
+            if ($token === "where")
             {
                 $token = false;
                 $non_general_flag = false;
@@ -372,8 +404,6 @@ else
                     oci_fetch($where_str_search_stmt);
                     $response = oci_result($where_str_search_stmt, "KEYWORD_ID");
                     ?>
-                    <h1> Where Keyword ID <?= $response ?> </h1> 
-                    <br />
                       <?php
 
                     oci_free_statement($where_str_search_stmt);
@@ -397,7 +427,6 @@ else
                     $k_t_a = oci_result($where_key_to_ans_stmt, "ANSWER_ID");
 
                     ?>
-                    <h1> Where Keyword to answer ID: <?= $k_t_a ?> </h1> <br />
                     <?php
                         oci_free_statement($where_key_to_ans_stmt);
 
@@ -411,12 +440,14 @@ else
                     oci_execute($where_ans_stmt);
                     oci_fetch($where_ans_stmt);
                     $answer = oci_result($where_ans_stmt, "ANSWER_NAME");
+                    oci_commit($connctn);
 
                     if ($answer == '')
                     {
+                    
                         $_SESSION["answer-id"] = $k_t_a;
                         ?>
-                <div class="w3-card-4">
+                    <div class="w3-card-4">
                     
                     <div class="w3-container w3-green">
                     <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
@@ -428,17 +459,18 @@ else
 					  Submit Answer
 					  </button>
                     </form>
-                </div>
+                    </div>
                         <?php
 
                     }
                     else
                     {
+                        
                         ?>
-                        <div class="w3-container" id="message-area">
-                            <p class="w3-round" id="chat1">
+                        <div class="w3-container w3-center" style="text-align:center" id="message-area">
+                            <h1 class="w3-round" id="chat1">
                                 <?= $answer ?>
-                            </p>
+                            </h1>
                             </div>
                         <?php
                     }
@@ -447,7 +479,7 @@ else
 
 
             }
-            elseif ($token == "when")
+            elseif ($token === "when")
             {
                 $token = false;
 
@@ -474,11 +506,7 @@ else
                     oci_commit($connctn);
                     oci_fetch($select_insert_stmt);
                     $max_keyword_id = oci_result($select_insert_stmt, "MAX(KEYWORD_ID)");
-                    echo '<br />';
-                    echo $max_keyword_id;
                     $max_keyword_id = $max_keyword_id + 1;
-                    echo '<br />';
-                    echo $max_keyword_id;
                     oci_free_statement($select_insert_stmt);
                     // Finds the max value for the Answer table so that I can insert one higher thus again saving me the trouble of writing a hence forth stupid trigger. 
                     $select_insert_answer = "select max(answer_id) from answer2";
@@ -487,11 +515,7 @@ else
                     oci_commit($connctn);
                     oci_fetch($select_insert_answer_stmt);
                     $max_answer_id = oci_result($select_insert_answer_stmt, "MAX(ANSWER_ID)");
-                    echo '<br />';
-                    echo $max_answer_id;
                     $max_answer_id = $max_answer_id + 1;
-                    echo '<br />';
-                    echo $max_answer_id;
                     oci_free_statement($select_insert_answer_stmt);
                     // Inserts keyword inputted by users for future questions.
                     $insert_when = "insert into keyword2 
@@ -540,7 +564,6 @@ else
                 </div>
                     <?php
                     $_SESSION["answer-id"] = $max_answer_id;
-                    <?php
 
                 }
                 else
@@ -549,17 +572,11 @@ else
                     $when_str_search = "select keyword_id from keyword2 where keyword_name = :key and category_id = '0003'";
                     $when_str_search_stmt = oci_parse($connctn, $when_str_search);
                     oci_bind_by_name($when_str_search_stmt, ":key", $key);
-                    echo " The Key \n ";
-                    echo $key;
                     oci_execute($when_str_search_stmt);
                     oci_commit($connctn);
                     oci_fetch($when_str_search_stmt);
                     $response = oci_result($when_str_search_stmt, "KEYWORD_ID");
-                    echo " THE response ";
-                    echo $response;
                     ?>
-                    <h1> when Keyword ID <?= $response ?> </h1> 
-                    <br />
                       <?php
                     oci_free_statement($when_str_search_stmt);
                     //******************************
@@ -575,7 +592,6 @@ else
                     oci_fetch($when_key_to_ans_stmt);
                     $k_t_a = oci_result($when_key_to_ans_stmt, "ANSWER_ID");
                     ?>
-                    <h1> when Keyword to answer ID: <?= $k_t_a ?> </h1> <br />
                     <?php
                         oci_free_statement($when_key_to_ans_stmt);
                     //********************************************
@@ -591,7 +607,19 @@ else
                     if ($answer == '')
                     {
                         ?>
-                        <h1>We don't seem to have an answer... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                    </div>
                         <?php
 
                     }
@@ -599,9 +627,9 @@ else
                     {
                         ?>
                         <div class="w3-container" id="message-area">
-                            <p class="w3-round" id="chat1">
+                            <h1 class="w3-round" id="chat1">
                                 <?= $answer ?>
-                            </p>
+                            </h1>
                             </div>
                         <?php
                     }
@@ -617,7 +645,7 @@ else
 
 
             }
-            elseif ($token == "how")
+            elseif ($token === "how")
             {
                 $token = false;
 
@@ -643,11 +671,8 @@ else
                     oci_fetch($select_insert_stmt);
                     $max_keyword_id = oci_result($select_insert_stmt, "MAX(KEYWORD_ID)");
 
-                    echo '<br />';
-                    echo $max_keyword_id;
+
                     $max_keyword_id = $max_keyword_id + 1;
-                    echo '<br />';
-                    echo $max_keyword_id;
                     oci_free_statement($select_insert_stmt);
                     // Finds the max value for the Answer table so that I can insert one higher thus again saving me the trouble of writing a hence forth stupid trigger. 
                     $select_insert_answer = "select max(answer_id) from answer2";
@@ -657,11 +682,7 @@ else
                     oci_fetch($select_insert_answer_stmt);
                     $max_answer_id = oci_result($select_insert_answer_stmt, "MAX(ANSWER_ID)");
 
-                    echo '<br />';
-                    echo $max_answer_id;
                     $max_answer_id = $max_answer_id + 1;
-                    echo '<br />';
-                    echo $max_answer_id;
                     oci_free_statement($select_insert_answer_stmt);
 
 
@@ -717,7 +738,6 @@ else
                 </div>
                     <?php
                     $_SESSION["answer-id"] = $max_answer_id;
-                    <?php
 
                 }
                 else
@@ -726,17 +746,11 @@ else
                     $how_str_search = "select keyword_id from keyword2 where keyword_name = :key and category_id = '0005'";
                     $how_str_search_stmt = oci_parse($connctn, $how_str_search);
                     oci_bind_by_name($how_str_search_stmt, ":key", $key);
-                    echo " The Key \n ";
-                    echo $key;
                     oci_execute($how_str_search_stmt);
                     oci_commit($connctn);
                     oci_fetch($how_str_search_stmt);
                     $response = oci_result($how_str_search_stmt, "KEYWORD_ID");
-                    echo " THE response ";
-                    echo $response;
                     ?>
-                    <h1> how Keyword ID <?= $response ?> </h1> 
-                    <br />
                       <?php
 
                     oci_free_statement($how_str_search_stmt);
@@ -760,7 +774,6 @@ else
                     $k_t_a = oci_result($how_key_to_ans_stmt, "ANSWER_ID");
 
                     ?>
-                    <h1> how Keyword to answer ID: <?= $k_t_a ?> </h1> <br />
                     <?php
                         oci_free_statement($how_key_to_ans_stmt);
 
@@ -777,8 +790,21 @@ else
 
                     if ($answer == '')
                     {
+                        $_SESSION["answer-id"] = $k_t_a;
                         ?>
-                        <h1>We don't seem to have an answer... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
                         <?php
 
                     }
@@ -786,25 +812,17 @@ else
                     {
                         ?>
                         <div class="w3-container" id="message-area">
-                            <p class="w3-round" id="chat1">
+                            <h1 class="w3-round" id="chat1">
                                 <?= $answer ?>
-                            </p>
+                            </h1>
                             </div>
                         <?php
                     }
                         oci_free_statement($how_ans_stmt);
                 }
 
-
-
-
-
-
-
-
-
             }
-            elseif ($token == "why")
+            elseif ($token === "why")
             {
                 $token = false;
 
@@ -829,11 +847,7 @@ else
                     oci_commit($connctn);
                     oci_fetch($select_insert_stmt);
                     $max_keyword_id = oci_result($select_insert_stmt, "MAX(KEYWORD_ID)");
-                    echo '<br />';
-                    echo $max_keyword_id;
                     $max_keyword_id = $max_keyword_id + 1;
-                    echo '<br />';
-                    echo $max_keyword_id;
                     oci_free_statement($select_insert_stmt);
                     // Finds the max value for the Answer table so that I can insert one higher thus again saving me the trouble of writing a hence forth stupid trigger. 
                     $select_insert_answer = "select max(answer_id) from answer2";
@@ -842,11 +856,7 @@ else
                     oci_commit($connctn);
                     oci_fetch($select_insert_answer_stmt);
                     $max_answer_id = oci_result($select_insert_answer_stmt, "MAX(ANSWER_ID)");
-                    echo '<br />';
-                    echo $max_answer_id;
                     $max_answer_id = $max_answer_id + 1;
-                    echo '<br />';
-                    echo $max_answer_id;
                     oci_free_statement($select_insert_answer_stmt);
                     // Inserts keyword inputted by users for future questions.
                     $insert_why = "insert into keyword2 
@@ -895,7 +905,6 @@ else
                 </div>
                     <?php
                     $_SESSION["answer-id"] = $max_answer_id;
-                    <?php
 
                 }
                 else
@@ -904,17 +913,11 @@ else
                     $why_str_search = "select keyword_id from keyword2 where keyword_name = :key and category_id = '0004'";
                     $why_str_search_stmt = oci_parse($connctn, $why_str_search);
                     oci_bind_by_name($why_str_search_stmt, ":key", $key);
-                    echo " The Key \n ";
-                    echo $key;
                     oci_execute($why_str_search_stmt);
                     oci_commit($connctn);
                     oci_fetch($why_str_search_stmt);
                     $response = oci_result($why_str_search_stmt, "KEYWORD_ID");
-                    echo " THE response ";
-                    echo $response;
                     ?>
-                    <h1> why Keyword ID <?= $response ?> </h1> 
-                    <br />
                       <?php
                     oci_free_statement($why_str_search_stmt);
                     //******************************
@@ -930,7 +933,6 @@ else
                     oci_fetch($why_key_to_ans_stmt);
                     $k_t_a = oci_result($why_key_to_ans_stmt, "ANSWER_ID");
                     ?>
-                    <h1> why Keyword to answer ID: <?= $k_t_a ?> </h1> <br />
                     <?php
                         oci_free_statement($why_key_to_ans_stmt);
                     //********************************************
@@ -945,8 +947,21 @@ else
 
                     if ($answer == '')
                     {
+                        $_SESSION["answer-id"] = $k_t_a;
                         ?>
-                        <h1>We don't seem to have an answer... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                    </div>
                         <?php
 
                     }
@@ -954,9 +969,9 @@ else
                     {
                         ?>
                         <div class="w3-container" id="message-area">
-                            <p class="w3-round" id="chat1">
+                            <h1 class="w3-round" id="chat1">
                                 <?= $answer ?>
-                            </p>
+                            </h1>
                             </div>
                         <?php
                     }
@@ -972,7 +987,7 @@ else
 
 
             }
-            elseif ($token == "what")
+            elseif ($token === "what")
             {
                 $token = false;
 
@@ -999,11 +1014,7 @@ else
                     oci_commit($connctn);
                     oci_fetch($select_insert_stmt);
                     $max_keyword_id = oci_result($select_insert_stmt, "MAX(KEYWORD_ID)");
-                    echo '<br />';
-                    echo $max_keyword_id;
                     $max_keyword_id = $max_keyword_id + 1;
-                    echo '<br />';
-                    echo $max_keyword_id;
                     oci_free_statement($select_insert_stmt);
                     // Finds the max value for the Answer table so that I can insert one higher thus again saving me the trouble of writing a hence forth stupid trigger. 
                     $select_insert_answer = "select max(answer_id) from answer2";
@@ -1012,11 +1023,7 @@ else
                     oci_commit($connctn);
                     oci_fetch($select_insert_answer_stmt);
                     $max_answer_id = oci_result($select_insert_answer_stmt, "MAX(ANSWER_ID)");
-                    echo '<br />';
-                    echo $max_answer_id;
                     $max_answer_id = $max_answer_id + 1;
-                    echo '<br />';
-                    echo $max_answer_id;
                     oci_free_statement($select_insert_answer_stmt);
                     // Inserts keyword inputted by users for future questions.
                     $insert_what = "insert into keyword2 
@@ -1050,8 +1057,21 @@ else
                     oci_free_statement($insert_what_kha_stmt);
 
                     ?>
-                    <h1>This is the first time this has been asked... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
                     <?php
+                    $_SESSION["answer-id"] = $max_answer_id;
 
                 }
                 else
@@ -1068,8 +1088,7 @@ else
                     $response = oci_result($what_str_search_stmt, "KEYWORD_ID");
                     echo " THE response ";
                     echo $response;
-                    ?>
-                    <h1> what Keyword ID <?= $response ?> </h1> 
+                    ?> 
                     <br />
                       <?php
                     oci_free_statement($what_str_search_stmt);
@@ -1086,7 +1105,6 @@ else
                     oci_fetch($what_key_to_ans_stmt);
                     $k_t_a = oci_result($what_key_to_ans_stmt, "ANSWER_ID");
                     ?>
-                    <h1> what Keyword to answer ID: <?= $k_t_a ?> </h1> <br />
                     <?php
                         oci_free_statement($what_key_to_ans_stmt);
                     //********************************************
@@ -1101,8 +1119,21 @@ else
 
                     if ($answer == '')
                     {
+                        $_SESSION["answer-id"] = $k_t_a;
                         ?>
-                        <h1>We don't seem to have an answer... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                    </div>
                         <?php
 
                     }
@@ -1110,9 +1141,9 @@ else
                     {
                         ?>
                         <div class="w3-container" id="message-area">
-                            <p class="w3-round" id="chat1">
+                            <h1 class="w3-round" id="chat1">
                                 <?= $answer ?>
-                            </p>
+                            </h1>
                             </div>
                         <?php
                     }
@@ -1126,7 +1157,7 @@ else
 
 
             }
-            elseif ($token == "who")
+            elseif ($token === "who")
             {
                 $token = false;
 
@@ -1152,11 +1183,7 @@ else
                     oci_commit($connctn);
                     oci_fetch($select_insert_stmt);
                     $max_keyword_id = oci_result($select_insert_stmt, "MAX(KEYWORD_ID)");
-                    echo '<br />';
-                    echo $max_keyword_id;
                     $max_keyword_id = $max_keyword_id + 1;
-                    echo '<br />';
-                    echo $max_keyword_id;
                     oci_free_statement($select_insert_stmt);
                     // Finds the max value for the Answer table so that I can insert one higher thus again saving me the trouble of writing a hence forth stupid trigger. 
                     $select_insert_answer = "select max(answer_id) from answer2";
@@ -1165,11 +1192,7 @@ else
                     oci_commit($connctn);
                     oci_fetch($select_insert_answer_stmt);
                     $max_answer_id = oci_result($select_insert_answer_stmt, "MAX(ANSWER_ID)");
-                    echo '<br />';
-                    echo $max_answer_id;
                     $max_answer_id = $max_answer_id + 1;
-                    echo '<br />';
-                    echo $max_answer_id;
                     oci_free_statement($select_insert_answer_stmt);
                     // Inserts keyword inputted by users for future questions.
                     $insert_who = "insert into keyword2 
@@ -1203,8 +1226,21 @@ else
                     oci_free_statement($insert_who_kha_stmt);
 
                     ?>
-                    <h1>This is the first time this has been asked... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
                     <?php
+                    $_SESSION["answer-id"] = $max_answer_id;
 
                 }
                 else
@@ -1213,17 +1249,11 @@ else
                     $who_str_search = "select keyword_id from keyword2 where keyword_name = :key and category_id = '0007'";
                     $who_str_search_stmt = oci_parse($connctn, $who_str_search);
                     oci_bind_by_name($who_str_search_stmt, ":key", $key);
-                    echo " The Key \n ";
-                    echo $key;
                     oci_execute($who_str_search_stmt);
                     oci_commit($connctn);
                     oci_fetch($who_str_search_stmt);
                     $response = oci_result($who_str_search_stmt, "KEYWORD_ID");
-                    echo " THE response ";
-                    echo $response;
                     ?>
-                    <h1> who Keyword ID <?= $response ?> </h1> 
-                    <br />
                       <?php
                     oci_free_statement($who_str_search_stmt);
                     //******************************
@@ -1239,7 +1269,6 @@ else
                     oci_fetch($who_key_to_ans_stmt);
                     $k_t_a = oci_result($who_key_to_ans_stmt, "ANSWER_ID");
                     ?>
-                    <h1> who Keyword to answer ID: <?= $k_t_a ?> </h1> <br />
                     <?php
                         oci_free_statement($who_key_to_ans_stmt);
                     //********************************************
@@ -1254,8 +1283,21 @@ else
 
                     if ($answer == '')
                     {
+                        $_SESSION["answer-id"] = $k_t_a;
                         ?>
-                        <h1>We don't seem to have an answer... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                    </div>
                         <?php
 
                     }
@@ -1263,9 +1305,9 @@ else
                     {
                         ?>
                         <div class="w3-container" id="message-area">
-                            <p class="w3-round" id="chat1">
+                            <h1 class="w3-round" id="chat1">
                                 <?= $answer ?>
-                            </p>
+                            </h1>
                             </div>
                         <?php
                     }
@@ -1346,8 +1388,21 @@ else
                     oci_free_statement($insert_general_kha_stmt);
 
                     ?>
-                    <h1>This is the first time this has been asked... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
                     <?php
+                    $_SESSION["answer-id"] = $max_answer_id;
 
                 }
                 else
@@ -1361,8 +1416,6 @@ else
                     oci_fetch($general_str_search_stmt);
                     $response = oci_result($general_str_search_stmt, "KEYWORD_ID");
                     ?>
-                    <h1> general Keyword ID <?= $response ?> </h1> 
-                    <br />
                       <?php
                     oci_free_statement($general_str_search_stmt);
                     //******************************
@@ -1378,7 +1431,6 @@ else
                     oci_fetch($general_key_to_ans_stmt);
                     $k_t_a = oci_result($general_key_to_ans_stmt, "ANSWER_ID");
                     ?>
-                    <h1> general Keyword to answer ID: <?= $k_t_a ?> </h1> <br />
                     <?php
                         oci_free_statement($general_key_to_ans_stmt);
                     //********************************************
@@ -1393,8 +1445,21 @@ else
 
                     if ($answer == '')
                     {
+                        $_SESSION["answer-id"] = $k_t_a;
                         ?>
-                        <h1>We don't seem to have an answer... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                    </div>
                         <?php
 
                     }
@@ -1402,14 +1467,10 @@ else
                     {
                         ?>
                             <div class="w3-container" id="message-area">
-                            <p class="w3-round" id="chat1">
+                            <h1 class="w3-round" id="chat1">
                                 <?= $answer ?>
-                            </p>
+                            </h1>
                             </div>
-    <!--
-                        <h1> general Answer to question: <?= $answer ?> </h1>
-                        <br />
-    -->
                         <?php
                     }
                         oci_free_statement($general_ans_stmt);
@@ -1452,54 +1513,11 @@ oci_close($connctn);
 				</div>
 				
 				
-				<script>
-					function chatFunction()
-					{
-						var value1 = document.getElementById("chat1");
-						var value3 = document.getElementById("chat3");
-						var value5 = document.getElementById("chat5");
-						var chatText = document.getElementById("input-box");
-						
-		//                value1.innerHTML = chatText.value
-						
-						var testval = value1.innerHTML;
-						var textval = chatText.innerHTML;
-						
-						if (value1.innerHTML == 1)
-							{
-								value1.innerHTML = chatText.value;
-		//                        value3.innerHTML = document.getElementById("chat1").value;
-		//                        value5.innerHTML = testval.length;
-							}
-						else if (value3.innerHTML == 3 && value1.innerHTML != 1)
-							{
-								value3.innerHTML = value1.innerHTML;
-								value1.innerHTML = chatText.value;
-							}
-						else if (value5.innerHTML == 5 && value3.innerHTML != 3)
-							{
-								value5.innerHTML = value3.innerHTML;
-								value3.innerHTML = value1.innerHTML;
-								value1.innerHTML = chatText.value;
-							}
-						else
-							{
-								value5.innerHTML = value3.innerHTML;
-								value3.innerHTML = value1.innerHTML;
-								value1.innerHTML = chatText.value;
-							}
-						
-					}
-				</script>
 				
-				<div>
-					<footer class=" w3-container w3-green w3-border-top" style="height:38.8px" id="footer1-green">
-						<p> </p>
-					</footer>
-					<footer class="w3-container w3-yellow" style="height:38.8px" id="footer2-yellow">
-						<p> </p>
-					</footer>
-				</div>
+            <div class="w3-container w3-padding-64">
+                <footer class="footer_topyfront"> </footer>
+                <footer class="footer_bottomgfront"></footer>
+            </div>
 			</body>
 		</html>
 		<?php
