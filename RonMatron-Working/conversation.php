@@ -23,7 +23,7 @@
 
 			</head>
 			<body>
-				<title> RonMatron Alpha Version </title>
+				<title> Ask me Ronnything? </title>
 				<header class=" w3-container w3-green" style="height:38.8px" id="header1-green">
 					<p> RonMatron 🤖 </p>
 				</header>
@@ -68,18 +68,63 @@
 echo '<br />';
 //echo $a_value;
 echo '<br />';
+
+if(array_key_exists("insert-answer-box", $_POST))
+{
+    //THIS ONE IS GOOD!!!
+    $a_id = $_SESSION['answer-id'];
+    $ans = $_POST['insert-answer-box'];
+    
+    $usr = 'mac1782';
+    $pwd = 'Aaron9531';
+
+    $db_conn_str = 
+                "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)
+                                           (HOST = cedar.humboldt.edu)
+                                           (PORT = 1521))
+                                (CONNECT_DATA = (SID = STUDENT)))";
+
+    $connctn = oci_connect($usr, $pwd, $db_conn_str);
+
+    if (!$connctn)
+    {
+        ?>
+        <p> Connection dont work </p>
+    <?php
+        exit;
+        
+    }
+    
+    $update_answer = "update answer2 
+                       set answer_name = :ans 
+                       where answer_id = :id ";
+    $update_answer_stmt = oci_parse($connctn, $update_answer);
+    oci_bind_by_name($update_answer_stmt, ":ans", $ans);
+    oci_bind_by_name($update_answer_stmt, ":id", $a_id);
+    oci_execute($update_answer_stmt, OCI_DEFAULT);
+    oci_commit($connctn);
+    oci_free_statement($update_answer_stmt);
+    
+    
+    
+    
+    
+    oci_close($connctn);
+}
+
         
 if(!array_key_exists("input-box", $_POST))
 {
     echo "LISTEN HERE MOTHER FUCKER <br />";
     echo "Anime is an art form <br />";
+    
 }
 else
 {
-            
 
-    $a_string = "Where at 7-Zip?";
-
+    $a_string = $_POST['input-box'];
+//    echo $a_string;
+    echo '<br />';
     $lower_string = strtolower($a_string);
 
     $array_analysis = $lower_string;
@@ -105,7 +150,7 @@ else
     //array for the FOR loops
 
     $a_array = array();
-    $conjunction_array = array("and", "or", "is", "so", "the", "did", "but", "yet", "that", "then", "i", "could", "drop", "are", "do", "my", "to", "can");
+    $conjunction_array = array("and", "or", "is", "so", "the", "did", "but", "yet", "that", "then", "i", "could", "drop", "are");
     $punctuation_array = array(".", "?", "!", "(", ")", "\"", "'". "[", "]", "{", "}");
     $completed_array = array();
 
@@ -299,9 +344,22 @@ else
                     oci_free_statement($insert_where_kha_stmt);
 
                     ?>
-                    <h1>This is the first time this has been asked... Could you provide us with an answer? </h1>
+                <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
                     <?php
-
+                    $_SESSION["answer-id"] = $max_answer_id;
+                    
                 }
                 else
                 {
@@ -356,8 +414,21 @@ else
 
                     if ($answer == '')
                     {
+                        $_SESSION["answer-id"] = $k_t_a;
                         ?>
-                        <h1>We don't seem to have an answer... Could you provide us with an answer? </h1>
+                <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
                         <?php
 
                     }
@@ -373,9 +444,6 @@ else
                     }
                         oci_free_statement($where_ans_stmt);
                 }
-
-
-
 
 
             }
@@ -457,7 +525,21 @@ else
                     oci_free_statement($insert_when_kha_stmt);
 
                     ?>
-                    <h1>This is the first time this has been asked... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
+                    <?php
+                    $_SESSION["answer-id"] = $max_answer_id;
                     <?php
 
                 }
@@ -620,7 +702,21 @@ else
                     oci_free_statement($insert_how_kha_stmt);
 
                     ?>
-                    <h1>This is the first time this has been asked... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
+                    <?php
+                    $_SESSION["answer-id"] = $max_answer_id;
                     <?php
 
                 }
@@ -784,7 +880,21 @@ else
                     oci_free_statement($insert_why_kha_stmt);
 
                     ?>
-                    <h1>This is the first time this has been asked... Could you provide us with an answer? </h1>
+                    <div class="w3-card-4">
+                    
+                    <div class="w3-container w3-green">
+                    <h2>We don't seem to have an answer... Could you provide us with an answer?</h2>
+                    </div>
+                    <form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+                    <input type="text" class="w3-input" name="insert-answer-box" id="insert-answer-box" placeholder="Type text here" minlength="1" maxlength="144" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
+                      value="reply">
+					  Submit Answer
+					  </button>
+                    </form>
+                </div>
+                    <?php
+                    $_SESSION["answer-id"] = $max_answer_id;
                     <?php
 
                 }
@@ -1328,7 +1438,7 @@ oci_close($connctn);
 				
 				<div class="w3-container w3-margin w3-round" id="form-input-rounded-box">
 					<form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
-					  <input type="text" class="w3-input" name="input-box" id="input-box" placeholder="Type text here" minlength="1" maxlength="10" />
+					  <input type="text" class="w3-input" name="input-box" id="input-box" placeholder="Type text here" minlength="1" maxlength="144" />
 					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3"
                       value="reply">
 					  Chat
