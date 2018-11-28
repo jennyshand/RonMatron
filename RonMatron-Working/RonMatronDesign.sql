@@ -62,6 +62,9 @@
  create table feedback2 
  (feedback_id   char(4),
   feedback_info   varchar2(500) not null,
+  rating          int,
+  name            varchar2(50),
+  email           varchar2(50),
   category_id  char(4) not null,
   answer_id   int,
   primary key (feedback_id),
