@@ -55,20 +55,21 @@
                  left: 0px; 
              }
              .body_section{
-                 background: #eff7ea;
-                 border-style: hidden;
-                 border-radius: 25px;
-                 border-collapse: collapse;
-                 border-color: dimgray;
-                 left: 15%;   
-                 right: 15%;
-                 top: 20%;
-                 bottom: auto;
-                 padding: 20px;
-                 position: absolute;
-                 text-align: left;
-                text
+                background: #eff7ea;
+                border-style: hidden;
+                border-radius: 25px;
+                border-collapse: collapse;
+                border-color: dimgray;
+                left: 15%;   
+                right: 15%;
+                top: 20%;
+                bottom:auto;
+                padding: 20px;
+                margin: 15px;
+                position: absolute;
+                text-align: left;
                 font-family: arial;
+                box-shadow: 12px 12px 2px 1px #4e5b4c;
             }
             .collapsible {
     background-color: forestgreen;
@@ -83,33 +84,34 @@
     outline: none;
     font-size: 15px;
 }
- .active, .collapsible:hover {
-    background-color: #f5ff49;
+
+.active, .collapsible:hover {
+    background-color: #41a059;
     color: black;
     padding: auto;
 }
- .content {
+
+.content {
     padding: 18px;
     display: none;
     overflow: hidden;
-    background-color: #c7ccbd;
+    background-color: #cee0d2;
     border-radius: 25px;
     font-family: sans-serif;
 }
         </style>
     <title> FAQ </title>
     </head>
-     <body>
-         
-     <header class="header_topg">
-         Frequently Asked Questions</header>
-     <header class="header_bottomy">
-        <form action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
-			<button class="one" name="next_option" type="submit" value="home">Home</button>
-            <button class="two" name="next_option" type="submit" value="ask">Ask the RonMatron</button>
-        </form>
-	</header>
-
+    <body>
+        
+    <header class="header_topg">
+        Frequently Asked Questions</header>
+    <header class="header_bottomy">
+        <nav>
+            <a href="/Home/">Home</a> |
+            <a href="/RonChat/">RonChat</a>
+        </nav></header>
+    <article class="body_section">
         <button class="collapsible">Where are Print Kiosks Located?</button>
         <div class="content">
             <p>There are Print Kiosks located in the following locations <ul>Natural Resources</ul><ul> Forestry</ul><ul> Harry Griffith Hall</ul><ul> Gist Hall</ul><ul> The University Center</ul><ul> Founders Hall</ul> <ul>Kineseology</ul><ul> Library</ul></p></div>
@@ -117,6 +119,26 @@
         <div class="content">
             <p>After logging into a campus computer a google drive window should appear; from here you may log in using your student e-mail to access the google drive</p>
         </div>
+        <button class="collapsible">How do I add money to my c-card?</button>
+        <div class="content">
+            <p>Funds may be added online at <a href="http://c-card.humboldt.edu/index.html" target="_blank">c-card.humboldt.edu</a></p>
+            <p>At any cashier on campus, i.e the Marketplace, Depot, or Library Cafe</p>
+            <p>Or in the second floor of the library near the stairwell.</p>
+        </div>
+        <button class="collapsible">How much does printing cost?</button>
+        <div class="content">
+        <p>Black and white pages cost $0.04 per side and color costs $0.25 per side</p></div>
+        <button class="collapsible">Where can I find software that I can use on my personal computer?</button>
+        <div class="content">
+        <p>You may find a list of software available for use on your personal computer at <a href="https://www2.humboldt.edu/software/software-downloads" target="_blank">humboldt.edu/software</a></p></div>
+        <button class="collapsible">Where is the help desk located?</button>
+        <div class="content"><p>The help desk is currently located on the second floor of the library in room 216, located on the west side of the building.</p></div>
+        <button class="collapsible">How can I see what rooms or labs are available for use?</button>
+        <div class="content"><p>You may search for available rooms under the locations tab on <a href="https://25live.collegenet.com/humboldt/#home_calendar[0]" target="_blank"> 25live</a></p></div>
+        <button class="collapsible">Why do birds suddenly appear every time you are near?</button>
+        <div class="content"><p>Just like me, they long to be close to you</p></div>
+        <button class="collapsible">How do I connect to the internet on campus?</button>
+        <div class="content"><p>Connect to the Eduroam network and you may be required to install software from <a href="https://its.humboldt.edu/internet-wifi/eduroam" target="_blank">it.humboldt.edu/internet-wifi/eduroam</a> in order to access the network.</p></div>
          </article>
          
    <!-- RIP Footers
