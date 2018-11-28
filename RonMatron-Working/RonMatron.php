@@ -105,13 +105,10 @@
             		create_FrontPage();
             		$_SESSION['next-stage'] = "makechoice";
 		}
-		else
+		elseif ($_POST['next_option3'] == "reply")
 		{
-			while($_POST['next_option3'] == "reply")
-			{
-				create_Conversation();
-				$_SESSION['next-stage'] = "choicethree";
-			}
+			create_Conversation();
+			$_SESSION['next-stage'] = "choicethree";
 		}
 	}
 	 else
