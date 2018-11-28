@@ -135,7 +135,7 @@
         <div class="content">
         <p>You may find a list of software available for use on your personal computer at <a href="https://www2.humboldt.edu/software/software-downloads" target="_blank">humboldt.edu/software</a></p></div>
         <button class="collapsible">Where is the help desk located?</button>
-        <div class="content"><p>The help desk is currently located on the second floor of the library in room 216, located on the west side of the building.</p></div>
+        <div class="content"><p>The help desk is currently located on the second floor of the library in room 208, located on the west side of the building.</p></div>
         <button class="collapsible">How can I see what rooms or labs are available for use?</button>
         <div class="content"><p>You may search for available rooms under the locations tab on <a href="https://25live.collegenet.com/humboldt/#home_calendar[0]" target="_blank"> 25live</a></p></div>
         <button class="collapsible">Why do birds suddenly appear every time you are near?</button>
