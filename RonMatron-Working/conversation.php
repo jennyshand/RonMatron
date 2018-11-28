@@ -105,7 +105,7 @@ else
     //array for the FOR loops
 
     $a_array = array();
-    $conjunction_array = array("and", "or", "is", "so", "the", "did", "but", "yet", "that", "then", "i", "could", "drop", "are", "do", "my", "to", "can", "much");
+    $conjunction_array = array("and", "or", "is", "so", "the", "did", "but", "yet", "that", "then", "i", "could", "drop", "are", "do", "my", "to", "can");
     $punctuation_array = array(".", "?", "!", "(", ")", "\"", "'". "[", "]", "{", "}");
     $completed_array = array();
 
