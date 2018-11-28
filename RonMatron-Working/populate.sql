@@ -39,7 +39,7 @@ values
 
 insert into category2
 values
-('0006', 'Printing');
+('0006', 'printing');
 
 insert into category2
 values
@@ -69,19 +69,19 @@ values
 
 insert into keyword2
 values
-('000005', '0005', 'Printer');
+('000005', '0005', 'printer');
 
 insert into keyword2
 values
-('000006', '0002', 'Print');
+('000006', '0002', 'print');
 
 insert into keyword2
 values
-('000007', '0002', 'Kiosks');
+('000007', '0002', 'kiosks');
 
 insert into keyword2
 values
-('000008', '0002', 'Located');
+('000008', '0002', 'located');
 
 insert into keyword2
 values
