@@ -1,5 +1,5 @@
 <?php
-    function create_Feedback()
+    function create_Confirmation()
     {
         ?>
 <!DOCTYPE html>
@@ -30,9 +30,9 @@
                     <p> What would you like to do next? </p>
 					<form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
 						<div>
-							<button class="one" name="next_option4" type="submit" value="ask">Ask Something Else</button>
-							<button class="two" name="next_option4" type="submit" value="home">Home</button>
-							<button class="three" name="next_option4" type="submit" value="faq">Check the FAQ</button>
+							<button class="one" name="next_option5" type="submit" value="ask">Ask Something Else</button>
+							<button class="two" name="next_option5" type="submit" value="home">Home</button>
+							<button class="three" name="next_option5" type="submit" value="faq">Check the FAQ</button>
 						</div>
                     </form>
             </div>

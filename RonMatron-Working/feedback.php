@@ -68,7 +68,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <button type="submit" class="btn btn-lg btn-warning btn-block" >Post </button>
+                                <button type="submit" class="btn btn-lg btn-warning btn-block" name="next_option4" value="confirm">Post </button>
                             </div>
                         </div>
 						<div>

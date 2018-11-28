@@ -7,7 +7,7 @@
 
 <!--
    10/4/18
-   URL: http://nrs-projects.humboldt.edu/~mac1782/RonMatron/RonMatron.php
+   URL: http://nrs-projects.humboldt.edu/~jes1098/RonMatron/RonMatron.php
 -->
 
 <head>
@@ -19,6 +19,7 @@
         require_once("frontPage.php");
 		require_once("conversation.php");
 		require_once("feedback.php");
+		require_once("confirmation.php");
      ?>
 
     <link href="http://users.humboldt.edu/smtuttle/styles/normalize.css"
@@ -118,7 +119,34 @@
             create_faq();
             $_SESSION['next-stage'] = "choicetwo";
 		}
+		elseif ($_POST['next_option4'] == "confirm")
+		{       
+            create_Confirmation();
+            $_SESSION['next-stage'] = "choicefive";
+		}
 		elseif ($_POST['next_option4'] == "home")
+		{
+			session_destroy();
+            session_regenerate_id(TRUE);
+            session_start();
+            create_FrontPage();
+            $_SESSION['next-stage'] = "makechoice";
+		}
+	}
+	elseif ($_SESSION['next-stage'] == "choicefive" &&
+            array_key_exists("next_option5", $_POST))
+	{
+		if($_POST['next_option5'] == "ask")
+		{
+			create_Conversation();
+			$_SESSION['next-stage'] = "choicethree";
+		}
+		elseif($_POST['next_option5'] == "faq")
+        {       
+            create_faq();
+            $_SESSION['next-stage'] = "choicetwo";
+		}
+		elseif ($_POST['next_option5'] == "home")
 		{
 			session_destroy();
             session_regenerate_id(TRUE);
