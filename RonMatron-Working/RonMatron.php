@@ -108,10 +108,10 @@
 	elseif ($_SESSION['next-stage'] == "choicefour" &&
             array_key_exists("next_option4", $_POST))
 	{
-		if($_POST['next_option4'] == "feedback")
+		if($_POST['next_option4'] == "ask")
 		{
-			create_Feedback();
-			$_SESSION['next-stage'] = "choicefour";
+			create_Conversation();
+			$_SESSION['next-stage'] = "choicethree";
 		}
 		elseif($_POST['next_option4'] == "faq")
         {       
