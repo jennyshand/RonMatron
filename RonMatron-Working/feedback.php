@@ -30,7 +30,7 @@
                 <div class="col-md-6 col-md-offset-3 form-container">
                     <h2>Feedback</h2> 
                     <p> Please provide your feedback below: </p>
-                    <form role="form" method="post" id="reused_form">
+					<form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
                         <div class="row">
                             <div class="col-sm-12 form-group">
                                 <label>How do you rate your overall experience?</label>
@@ -71,6 +71,11 @@
                                 <button type="submit" class="btn btn-lg btn-warning btn-block" >Post </button>
                             </div>
                         </div>
+						<div>
+							<button class="one" name="next_option4" type="submit" value="ask">Ask Something Else</button>
+							<button class="two" name="next_option4" type="submit" value="home">Home</button>
+							<button class="three" name="next_option4" type="submit" value="faq">Check the FAQ</button>
+						</div>
                     </form>
                     <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Posted your feedback successfully!</h3> </div>
                     <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
