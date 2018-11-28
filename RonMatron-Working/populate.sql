@@ -95,7 +95,17 @@ insert into keyword2
 values
 ('000011', '0005', 'c-card');
 
+insert into keyword2
+values
+('000012', '0005', 'much');
 
+insert into keyword2
+values
+('000013', '0005', 'printing');
+
+insert into keyword2
+values
+('000014', '0005', 'cost');
 
 
 prompt inserting rows into answer2
@@ -137,6 +147,10 @@ values
 insert into answer2
 values
 ('0007','0005','Funds may be added online at c-card.humboldt.edu, at any cashier on campus for example: the Marketplace, Depot, or Library Cafe, or on the second floor of the library near the stairwell.');
+
+insert into answer2
+values
+('0008','0005','Black and white pages cost $0.04 per side and color costs $0.25 per side.');
 
 
 prompt insert into table keyword_has_answer
@@ -188,6 +202,18 @@ values
 insert into keyword_has_answer2 
 values
 ('000011','0007');
+
+insert into keyword_has_answer2 
+values
+('000012','0008');
+
+insert into keyword_has_answer2 
+values
+('000013','0008');
+
+insert into keyword_has_answer2 
+values
+('000014','0008');
 
 
 prompt inserting into the feedback table 
