@@ -45,7 +45,6 @@
 
 <body>
 
-    <?php
 <?php
     if (! array_key_exists('next-stage', $_SESSION))
     {
