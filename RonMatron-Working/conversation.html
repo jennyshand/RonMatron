@@ -1,0 +1,152 @@
+<?php
+    function create_Conversation()
+    {
+        ?>
+		<!DOCTYPE html>
+		<!--
+		Last Modified by: Matthew Compelube
+		Last Modified date: 11/3/18
+		Created by: Matthew Compelube
+		created date: 11/3/2018
+		-->
+
+		<html>
+			<head>
+				<meta charset="utf-8" />
+				<link rel="stylesheet" type="text/css" href="RonMatronFront.css">
+				<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+				<script
+					src="https://code.jquery.com/jquery-3.3.1.min.js"
+					integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+					crossorigin="anonymous">
+				</script>
+
+			</head>
+			<body>
+				<title> RonMatron Alpha Version </title>
+                <div class="w3-container w3-padding-64">
+                    <header class="w3-container header_topgfront" style="height:38.8px" id="header1-green">
+                    
+                    </header>
+                    <header class="w3-container header_bottomyfront" style="height:38.8px" id="header2-yellow">
+                    </header>
+                </div>
+                
+				
+				<div class="Ron">
+		<!--            <div class="w3-white">-->
+		<!--                <div class="w3-bar w3-center">-->
+
+		<!--					<div class="w3-bar-item #c7ccbd" style="height:200px">-->
+                                
+                             
+						   
+							<div id="Ron">
+		<!--                        <div class="w3-container">-->
+									<div class="w3-brown w3-container" id="hat">
+									<div id="innerhat"></div>
+									</div>
+									<div class="w3-container w3-center" id="face">
+											<!-- <p>Ron's Talking Head Here</p> -->
+                                        <div class="face"></div>
+                                        <p></p>
+											<div class="eye"></div>
+                                            vegan
+											<div class="eye"></div>
+                                        </div>
+									</div>
+                    
+									<div class="w3-black w3-container" id="beard">
+										<div id="mouth">
+										
+										</div>
+									</div>
+		<!--                        </div>-->
+							</div>
+		<!--                </div>-->
+		<!--            </div>-->
+				</div>
+				
+				<div class="w3-container" id="message-area">
+				
+				</div>
+				
+				<div class="w3-container w3-margin w3-round w3-padding-64" id="form-input-rounded-box">
+					<form id="input-rounded-box" action="<?= htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES) ?>" method="post">
+					  <input type="text" class="w3-input" name="input-box" id="input-box" placeholder="Type text here" min="1" />
+					  <button class="w3-butn w3-margin w3-blue" type="submit" onclick="chatFunction()" id="chat_button" name="next_option3" value="reply">
+					  Chat
+					  </button>
+					  <div>
+						<button class="one" name="next_option3" type="submit" value="home">Home</button>
+						<button class="two" name="next_option3" type="submit" value="faq">Check the FAQ</button>
+					  </div>
+					</form>
+				</div>
+						
+				<script>
+                    
+$("body").mousemove(function(event) {
+  var eye = $(".eye");
+  var x = (eye.offset().left) + (eye.width() / 2);
+  var y = (eye.offset().top) + (eye.height() / 2);
+  var rad = Math.atan2(event.pageX - x, event.pageY - y);
+  var rot = (rad * (180 / Math.PI) * -1) + 180;
+  eye.css({
+    '-webkit-transform': 'rotate(' + rot + 'deg)',
+    '-moz-transform': 'rotate(' + rot + 'deg)',
+    '-ms-transform': 'rotate(' + rot + 'deg)',
+    'transform': 'rotate(' + rot + 'deg)'
+  });
+});
+                    
+					function chatFunction()
+					{
+						var value1 = document.getElementById("chat1");
+						var value3 = document.getElementById("chat3");
+						var value5 = document.getElementById("chat5");
+						var chatText = document.getElementById("input-box");
+						
+		//                value1.innerHTML = chatText.value
+						
+						var testval = value1.innerHTML;
+						var textval = chatText.innerHTML;
+						
+						if (value1.innerHTML == 1)
+							{
+								value1.innerHTML = chatText.value;
+		//                        value3.innerHTML = document.getElementById("chat1").value;
+		//                        value5.innerHTML = testval.length;
+							}
+						else if (value3.innerHTML == 3 && value1.innerHTML != 1)
+							{
+								value3.innerHTML = value1.innerHTML;
+								value1.innerHTML = chatText.value;
+							}
+						else if (value5.innerHTML == 5 && value3.innerHTML != 3)
+							{
+								value5.innerHTML = value3.innerHTML;
+								value3.innerHTML = value1.innerHTML;
+								value1.innerHTML = chatText.value;
+							}
+						else
+							{
+								value5.innerHTML = value3.innerHTML;
+								value3.innerHTML = value1.innerHTML;
+								value1.innerHTML = chatText.value;
+							}
+						
+					}
+				</script>
+				
+            <div class="w3-container w3-padding-64">
+            <footer class="footer_topyfront"> </footer>
+			<footer class="footer_bottomgfront"></footer>
+            </div>
+                
+				
+			</body>
+		</html>
+<?php
+    }
+?>

@@ -32,14 +32,24 @@
   text-align: right;
 }
 
-.eyes
-{
+.eye {
   position: relative;
   display: inline-block;
-  background-color: grey;
-  height: 20px;
-  width: 20px;
-  border-radius: 100%;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background: white;
+}
+.eye:after
+{
+    position: absolute;
+  bottom: 17px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  background: #000;
+    content: " ";
+    border-radius: 50%;
 }
 .container
 {
@@ -54,7 +64,9 @@
 
 #Ron
 {
+    top: 40px;
     margin: auto;
+    position: inherit;
 }
 
 #hat
@@ -81,16 +93,23 @@
     width: 25%;
     background-color: peachpuff;
     position:relative;
+    color: peachpuff;
 }
 
+
+ 
+
+.container {
+  width: 100%;
+}
 #eye
 {
-    margin-top:10px;
-    margin-right:10px;
-    margin-left: 10px;
+    margin-top:20px;
+    margin-right:20px;
+    margin-left: 20px;
     display:inline-block;
-    height:30%;
-    width:30%;
+    height:100px;
+    width:100px;
     position:relative;
 }
 
@@ -142,6 +161,7 @@
                 
     border: 20px;
     padding-bottom: 60px;
+    
     text-align: center;
     font-family: fantasy;
     font-size: 20px;
