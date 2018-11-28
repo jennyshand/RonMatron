@@ -36,8 +36,8 @@ $completed_array = array();
 
 //LOG IN, DONT TOUCH
 
-$usr = 'mac1782';
-$pwd = 'Aaron9531';
+$usr = '';
+$pwd = '';
 
 $db_conn_str = 
             "(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)
