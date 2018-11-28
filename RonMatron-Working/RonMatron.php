@@ -92,23 +92,26 @@
 	elseif ($_SESSION['next-stage'] == "choicethree" &&
             array_key_exists("next_option3", $_POST))
 	{
-		if($_POST['next_option3'] == "reply")
-		{
-			create_Conversation();
-			$_SESSION['next-stage'] = "choicetwo";
-		}
-		elseif($_POST['next_option3'] == "faq")
-        {       
-            create_faq();
-            $_SESSION['next-stage'] = "choicetwo";
+		if($_POST['next_option3'] == "faq")
+        	{       
+            		create_faq();
+            	$_SESSION['next-stage'] = "choicetwo";
 		}
 		elseif ($_POST['next_option3'] == "home")
 		{
 			session_destroy();
-            session_regenerate_id(TRUE);
-            session_start();
-            create_FrontPage();
-            $_SESSION['next-stage'] = "makechoice";
+            		session_regenerate_id(TRUE);
+            		session_start();
+            		create_FrontPage();
+            		$_SESSION['next-stage'] = "makechoice";
+		}
+		else
+		{
+			while($_POST['next_option3'] == "reply")
+			{
+				create_Conversation();
+				$_SESSION['next-stage'] = "choicethree";
+			}
 		}
 	}
 	 else
